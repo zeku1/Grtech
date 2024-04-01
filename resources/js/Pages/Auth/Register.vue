@@ -10,6 +10,7 @@ const form = useForm({
     name: '',
     email: '',
     password: '',
+    role:'',
     password_confirmation: '',
 });
 
@@ -54,6 +55,25 @@ const submit = () => {
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
+            </div>
+
+            <div class="mt-4">
+                <InputLabel for="role" value="Role" />
+
+                <select
+                    id="role"
+                    v-model="form.role"
+                    class="mt-1 block w-full form-select"
+                    required
+                    autocomplete="role"
+                >
+                    <option value="" disabled>Select a role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <!-- Add more options as needed -->
+                </select>
+
+                <InputError class="mt-2" :message="form.errors.role" />
             </div>
 
             <div class="mt-4">
